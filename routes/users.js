@@ -8,7 +8,7 @@ const { sendMail } = require("../utils/send");
 
 router.post("/send-mail", async (req, res, next) => {
   try {
-    const user = new userCollection({ email: req.body.email });
+    const user = new userCollection(req.body);
     await user.save();
     console.log(req.body.email);
     console.log(user);
